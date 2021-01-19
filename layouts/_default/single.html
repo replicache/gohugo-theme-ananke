@@ -5,20 +5,21 @@
 
 {{ define "main" }}
   {{ $section := .Site.GetPage "section" .Section }}
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
+  <article class="flex flex-column">
+    <header class="self-center w-100 bg-white-10 ph2">
+      <div class="mw8 center">
+      <!-- <aside class="instapaper_ignoref b helvetica tracked">
           {{/*
           CurrentSection allows us to use the section title instead of inferring from the folder.
           https://gohugo.io/variables/page/#section-variables-and-methods
           */}}
         {{with .CurrentSection.Title }}{{. | upper }}{{end}}
       </aside>
-      
-      <h1 class="f1 retina-thin mt3 mb1">
+       -->
+      <h1 class="f1 retina-thin mv4 tc">
         {{- .Title -}}
       </h1>
-      {{ partial "social-share.html" . }}
+      <!-- {{ partial "social-share.html" . }} -->
       {{ with .Params.author }}
       <p class="tracked">
           By <strong>
@@ -31,7 +32,7 @@
       </p>
       {{ end }}
       {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
-      <time class="f6 mv4 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+      <time class="f6 mv2 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
         {{- .Date.Format "January 2, 2006" -}}
       </time>
 
@@ -45,8 +46,9 @@
         <span class="f6 mv4 dib tracked"> - {{ .ReadingTime}} minutes read</span>
         <span class="f6 mv4 dib tracked"> - {{ .WordCount}} words</span>
       {{ end }}
+    </div>
     </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links nested-img white pr4-l w-100">
+    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links nested-img white pr4-l w-100 self-center mw8 ph2">
       {{- .Content -}}
       {{- partial "tags.html" . -}}
       <div class="mt6 instapaper_ignoref">
