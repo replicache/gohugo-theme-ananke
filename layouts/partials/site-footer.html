@@ -1,7 +1,7 @@
-<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-center">
-  <a class="f5 fw4 hover-white no-underline white-90 pv3 ph3 ttu" href="{{ .Site.Params.copyright_url }}" >
-    &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ now.Format "2006"}} {{ end }}
+<footer class=" bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-center f5 fw4 white-90 pv3">
+    &copy; {{ now.Format "2006"}} <a class="white-90 ph1 ttu" href="{{ .Site.Params.copyright_url }}" >
+    {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} {{ end }}
   </a>
   </div>
 </footer>
