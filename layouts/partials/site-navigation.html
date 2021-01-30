@@ -1,16 +1,12 @@
 <nav class="pt2" role="navigation">
   <div class="flex flex-wrap justify-end items-center center mw8">
-    <div class="flex items-center">
+    <div class="flex items-center w-100 justify-stretch">
       {{ partial "i18nlist.html" . }} {{ if .Site.Menus.main }}
-      <ul class="pl0 mr3">
+      <ul class="pl0 mr3 flex-auto">
         {{ range .Site.Menus.main }}
-        <li class="list f5 fw4 dib pr3">
-          <a
-            class="hover-white no-underline white-90"
-            href="{{ .URL }}"
-            title="{{ .Name }} page"
-          >
-            {{ .Name }}
+        <li class="list f6 fw4 dib pr3">
+          <a class="white-90 ttu" href="{{ .URL }}">
+            {{ .Pre | default "" }} {{ .Name }} {{ .Post | default "" }}
           </a>
         </li>
         {{ end }}
